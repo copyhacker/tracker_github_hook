@@ -1,5 +1,6 @@
 smart_events:
-  github_url: 'https://github.com/ministrycentered/smart-events'
+  # github_url: 'http://github.com/ministrycentered/smart-events'
+  github_url: 'http://github.com/gravelpup/casseroles'
   tracker_api_token: 87b8a49b7c00bd80e4e310fd02b5db77
   tracker_project_id: 15907
   ref: refs/heads/master
