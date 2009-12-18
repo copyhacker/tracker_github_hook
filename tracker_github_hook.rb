@@ -86,7 +86,7 @@ helpers do
       # state = tracker_trigger[1].match(/.*state:(\s?\w+).*/)
       # if state
       state = tracker_trigger[1].strip
-      unless state.blank?
+      unless state.empty?
         # state = state[1].strip
         RestClient.put(create_api_url(tracker_info[:project_id], story_id), 
                        "<story><current_state>#{state}</current_state></story>", 
