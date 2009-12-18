@@ -84,7 +84,7 @@ helpers do
     
       # See if we have a state change
       # state = tracker_trigger[1].match(/.*state:(\s?\w+).*/)
-      if state
+      # if state
       state = tracker_trigger[1].strip
       unless state.blank?
         # state = state[1].strip
