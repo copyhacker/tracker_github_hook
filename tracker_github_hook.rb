@@ -71,7 +71,9 @@ helpers do
     api_token = api_token_for_user(tracker_info, commit['author']['email'])
 
     # see if there is a Tracker story trigger, and if so, get story ID
-    message.scan(/\[Story(\d+)([^\]]*)\]/) do |tracker_trigger|
+    # regex = /\[Story(\d+)([^\]]*)\]/
+    regex = /\[\#(\d+)\:?([^\]]*)\]/
+    message.scan(regex) do |tracker_trigger|
       @num_commits += 1
       story_id = tracker_trigger[0]
 
@@ -81,10 +83,11 @@ helpers do
                       tracker_api_headers(api_token))
     
       # See if we have a state change
-      state = tracker_trigger[1].match(/.*state:(\s?\w+).*/)
+      # state = tracker_trigger[1].match(/.*state:(\s?\w+).*/)
       if state
-        state = state[1].strip
-
+      state = tracker_trigger[1].strip
+      unless state.blank?
+        # state = state[1].strip
         RestClient.put(create_api_url(tracker_info[:project_id], story_id), 
                        "<story><current_state>#{state}</current_state></story>", 
                        tracker_api_headers(api_token))
