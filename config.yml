@@ -8,3 +8,6 @@ smart_events:
     jonathan:
       email: jonathan.vaught@gmail.com
       tracker_api_token: 87b8a49b7c00bd80e4e310fd02b5db77
+    scottmottedotcom:
+      email: scott@scottmotte.com
+      tracker_api_token: 0315c2d7bda2ec013039377d54a3431b
